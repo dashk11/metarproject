@@ -1,3 +1,4 @@
+from datetime import date
 from rest_framework import serializers
 import pandas as pd
 
@@ -11,7 +12,3 @@ class QueryParamSerializer(serializers.Serializer):
         if data['scode'] not in valid_stations:
             raise serializers.ValidationError("Invalid Scode")
         return data
-
- 
-
-    

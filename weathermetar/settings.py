@@ -19,13 +19,13 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'userReport.apps.UserreportConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'weathermetar',
     'rest_framework',
 ]
 
@@ -100,7 +100,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -120,6 +120,18 @@ LOGGING = {
         'handlers': ['console'],
         'level': 'INFO',
     },
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'user_report',
+        'USER': 'postgres',
+        'PASSWORD': 'hari5678',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+
 }
 
 REDIS_HOST = '127.0.0.1'

@@ -17,12 +17,17 @@ class CacheService:
             return json.loads(value)
         else:
             logging.info(f"===No value found for key: {key}===")
-            return 0
+            return None
     def setKey(self, key, value):
         self.redis_instance.set(key, json.dumps(value))
         logging.info(f"===Key: {key}, updated with {value}.===")
     def deleteKey(self, key):
         self.redis_instance.delete(key)
         logging.info(f"===Key: {key}, deleted.===")
+    
+    def getallkeys(self):
+        l_keys = self.redis_instance.keys()
+        l_keys = [str(v) for v in l_keys]
+        return l_keys
 
 
